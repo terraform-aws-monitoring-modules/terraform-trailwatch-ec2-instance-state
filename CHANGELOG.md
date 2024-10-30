@@ -19,3 +19,9 @@
 
 ### Fixed
 - Corrected `metric_name` parameter in `aws_cloudwatch_metric_alarm` to ensure proper linkage with `aws_cloudwatch_log_metric_filter` resource.
+
+## [1.1.1] - 2024-10-30
+
+### Changed
+
+- Updated the `alarm_description` in the [`main.tf`](main.tf).
