@@ -1,4 +1,15 @@
-# aws-monitoring-ec2-instance-state
+<p align="center">
+  <a href="https://github.com/terraform-trailwatch-modules" title="Terraform Trailwatch Modules"><img src="https://raw.githubusercontent.com/terraform-trailwatch-modules/art/refs/heads/main/logo.jpg" height="100" alt="Terraform Trailwatch Modules"></a>
+</p>
+
+<h1 align="center">Elastic Compute Cloud (EC2)</h1>
+
+<p align="center">
+  <a href="https://github.com/terraform-trailwatch-modules/terraform-trailwatch-ec2/releases" title="Releases"><img src="https://img.shields.io/badge/Release-1.0.1-1d1d1d?style=for-the-badge" alt="Releases"></a>
+  <a href="https://github.com/terraform-trailwatch-modules/terraform-trailwatch-ec2/blob/main/LICENSE" title="License"><img src="https://img.shields.io/badge/License-MIT-1d1d1d?style=for-the-badge" alt="License"></a>
+</p>
+
+## About
 This Terraform module creates CloudWatch Log Metric Filters and associated Alarms to monitor EC2 instance state changes, based on specified events. It ensures that critical instance state changes are tracked and alerts are sent to a specified SNS topic.
 
 ## Features
@@ -28,8 +39,8 @@ This Terraform module creates CloudWatch Log Metric Filters and associated Alarm
 
 ## Simple Example
 ```hcl
-module "aws_monitoring_ec2_instance_state" {
-  source                         = "path/to/module"
+module "terraform_trailwatch_ec2" {
+  source                         = "terraform-trailwatch-modules/ec2/trailwatch"
   ec2_instance_ids               = ["i-12345678", "i-87654321"]
   cw_log_group_name              = "the-cloudtrail-log-group"
   cw_metric_filter_alarm_actions = ["arn:aws:sns:region:account-id:sns-topic"]
@@ -38,8 +49,8 @@ module "aws_monitoring_ec2_instance_state" {
 
 ## Advanced Example
 ```hcl
-module "aws_monitoring_ec2_instance_state" {
-  source                                     = "path/to/module"
+module "terraform_trailwatch_ec2" {
+  source                                     = "terraform-trailwatch-modules/ec2/trailwatch"
   ec2_instance_ids                           = ["i-12345678", "i-87654321"]
   ec2_instance_state_events                  = ["RunInstances", "StopInstances"]
   cw_log_group_name                          = "the-cloudtrail-log-group"
