@@ -1,11 +1,11 @@
 resource "aws_cloudwatch_log_metric_filter" "ec2_instance_state_metric_filter" {
   count          = length(var.ec2_instance_ids)
   log_group_name = var.cw_log_group_name
-  name           = "${var.ec2_instance_ids[count.index]}-instance-state-metric-filter"
+  name           = "${var.ec2_instance_ids[count.index]}-metric-filter"
   pattern        = format("{ ($.eventSource = ec2.amazonaws.com) && ($.requestParameters.instancesSet.items[*].instanceId = \"${var.ec2_instance_ids[count.index]}\") && ($.eventName = \"${join("\" || $.eventName = \"", var.ec2_instance_state_events)}\") }")
 
   metric_transformation {
-    name      = "${var.ec2_instance_ids[count.index]}-instance-state-metric-filter"
+    name      = "${var.ec2_instance_ids[count.index]}-metric-filter"
     namespace = var.cw_metric_filter_namespace
     value     = var.cw_metric_filter_value
   }
