@@ -14,3 +14,8 @@
 
 ### Changed
 - Updated Terraform examples in [`README.md`](README.md) to reference the module source from the Terraform Registry.
+
+## [1.1.0] - 2024-10-30
+
+### Fixed
+- Corrected `metric_name` parameter in `aws_cloudwatch_metric_alarm` to ensure proper linkage with `aws_cloudwatch_log_metric_filter` resource.
