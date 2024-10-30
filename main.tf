@@ -1,4 +1,4 @@
-resource "aws_cloudwatch_log_metric_filter" "ec2_instance_state_metric_filter" {
+resource "aws_cloudwatch_log_metric_filter" "metric_filter" {
   count          = length(var.ec2_instance_ids)
   log_group_name = var.cw_log_group_name
   name           = "${var.ec2_instance_ids[count.index]}-metric-filter"
@@ -11,7 +11,7 @@ resource "aws_cloudwatch_log_metric_filter" "ec2_instance_state_metric_filter" {
   }
 }
 
-resource "aws_cloudwatch_metric_alarm" "elb_metric_filter_alarm" {
+resource "aws_cloudwatch_metric_alarm" "metric_filter_alarm" {
   count               = length(var.ec2_instance_ids)
   alarm_name          = "${var.ec2_instance_ids[count.index]}-metric-filter-alarm"
   comparison_operator = var.cw_metric_filter_alarm_comparison_operator
@@ -21,6 +21,6 @@ resource "aws_cloudwatch_metric_alarm" "elb_metric_filter_alarm" {
   period              = var.cw_metric_filter_alarm_period
   statistic           = var.cw_metric_filter_alarm_statistic
   threshold           = var.cw_metric_filter_alarm_threshold
-  alarm_description   = "Alarm when ELB ${var.ec2_instance_ids[count.index]} has >= 1 data points within 5 minutes."
+  alarm_description   = "Alarm when the resource exceeds the specified threshold."
   alarm_actions       = var.cw_metric_filter_alarm_actions
 }
