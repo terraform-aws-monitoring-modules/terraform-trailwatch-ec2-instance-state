@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.0.0] - 2024-10-29
+## [1.0.0] - 2024-10-30
 
 ### Added
 - Initial release of the EC2 Instance State Monitoring module.
@@ -10,18 +10,10 @@
 - Alarms triggered based on defined thresholds for selected instance state changes.
 - Detailed variable descriptions for streamlined customization and configuration.
 
-## [1.0.1] - 2024-10-30
-
 ### Changed
 - Updated Terraform examples in [`README.md`](README.md) to reference the module source from the Terraform Registry.
-
-## [1.1.0] - 2024-10-30
+- Updated the `alarm_description` in the [`main.tf`](main.tf).
 
 ### Fixed
 - Corrected `metric_name` parameter in `aws_cloudwatch_metric_alarm` to ensure proper linkage with `aws_cloudwatch_log_metric_filter` resource.
 
-## [1.1.1] - 2024-10-30
-
-### Changed
-
-- Updated the `alarm_description` in the [`main.tf`](main.tf).
