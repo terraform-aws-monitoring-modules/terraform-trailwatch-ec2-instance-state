@@ -9,3 +9,8 @@
 - Automatic creation of CloudWatch metric filters based on specified EC2 instance IDs and monitored events.
 - Alarms triggered based on defined thresholds for selected instance state changes.
 - Detailed variable descriptions for streamlined customization and configuration.
+
+## [1.0.1] - 2024-10-30
+
+### Changed
+- Updated Terraform examples in [`README.md`](README.md) to reference the module source from the Terraform Registry.
